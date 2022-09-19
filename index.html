@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trong Javascript cũng có "Typescript" mà bấy lâu nay ta không biết</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css">
+    <link rel="icon" href="https://htmlcss.fullstack.edu.vn/assets/f8_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.css {
+  width: 550px;
+}
+
+.h2 {
+  line-height: 50px;
+}
+
+.hello1 {
+  line-height: 50px;
+}
+
+.img {
+  margin-left: 40px;
+}
+</style>
+  </head>
+  <body>
+    <h1>Trong Javascript cũng có "Typescript" mà bấy lâu nay ta không biết</h1>
+    <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/4685/63117986d6356.png" width="425px" height="150px;">
+    <p>Có thể tiêu đề sẽ gây hoang mang cho một số bạn chưa, mới hoặc đã biết về Typescript <b>(TS)</b>, chúng mình cùng bắt đầu bài viết để giải đáp thắc mắc nào:</p>   
+    <h2 id="h2">Tại sao bài viết này ra đời</h2>
+    <ul>
+      <li>Dành cho các bạn muốn gán type trong code ReactJS đang sử dụng JS mà dự án đang không xài TS</li>
+    </ul>
+    <h2>Làm sao để viết “TS” trong JS</h2>
+    <p>Đầu tiên chúng ta sẽ tìm hiểu từ khoá <b>PropTypes</b> trong ReactJS</p>
+    <h2>1. PropTypes là cái chi chi:</h2>
+    <p>Khái niệm Prop trong React thì ắt hẳn các bạn cũng đã biết (ai chưa biết thì mở ngay video của anh Sơn xem nhé).</p>
+    <p>Khi chúng ta truyền Prop từ Component <b>(Com)</b> cha xuống <b>(Com)</b> con thì mỗi Prop có 1 type khác nhau đúng k nè.</p>
+    <p>Chúng ta muốn mỗi Prop đều có type riêng, tránh trường hợp Prop đó là 1 function mà bạn lại truyền object thì có phải “Râu ông này cắm cầm bà kia không” =))</p>
+    <h2>2. Cách cài đặt:</h2>
+    <pre><code>    npm install --save prop-types    </code></pre>
+    <h2>3. Cách sử dụng:</h2>
+</head>
+<body>
+<pre class='css'>
+<code class="language-js">import PropTypes from &quot;prop-types&quot;;
+
+  export default function Counter({ count, setCount }) {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;p&gt;{count}&lt;/p&gt;
+        &lt;button onClick={() =&gt; setCount(count + 1)}&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+    );
+  }
+  
+  Counter.propTypes = {
+    count: PropTypes.number,
+    setCount: PropTypes.func
+  }</code>
+</pre>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+<ul>
+  <li>Trong đoạn code trên ta có thể thấy ở dòng <code>Counter.propTypes = ...</code> chúng ta đã khai báo kiểu dữ liệu cho nó</li>
+  <li class="hello1">VD: Chúng ta truyền sai kiểu dữ liệu thì sao? (Thay vì truyền count là number, mình sẽ truyền string)</li>
+  <li>Bùm, đã có lỗi xảy ra ở đây</li>
+</ul>
+<img class="img" src="https://files.fullstack.edu.vn/f8-prod/blog_posts/4685/63117f2cee213.png" width="534" height="70">
+<h2>Nhược điểm so với TS</h2>
+<p>Có 1 nhược điểm của thằng PropTypes này so với TS là nó sẽ không báo error trực tiếp khi bạn code sai type như trong TS, nó chỉ báo error ở trên log của các bạn.</p>
+<h2>Tóm lại</h2>
+<p>Qua bài viết này mình mong sẽ đem lại sự hữu ích cho các bạn.</p>
+  </body>
+</html>
